@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import {
   CircularProgressbar,
   CircularProgressbarWithChildren,
   buildStyles,
 } from 'react-circular-progressbar';
+
 import classNames from 'classnames';
 import { easeQuadInOut } from 'd3-ease';
 
@@ -19,11 +20,11 @@ const Code: React.FunctionComponent<React.HTMLProps<HTMLSpanElement>> = (props) 
   <code className={classNames('p-1 bg-yellow text-dark', props.className)} {...props} />
 );
 
-const Example: React.FunctionComponent<{ description: React.ReactNode }> = ({
-  description,
-  children,
-}) => (
-  <div className="col-12 col-sm-6 col-md-4 mt-5">
+const Example: React.FunctionComponent<{
+  description: React.ReactNode;
+  children: any;
+}> = ({ description, children }) => (
+  <div className="col-12 col-sm-6 col-md-4 mt-4">
     <div className="row">
       <div className="col-6 col-md-4 offset-3 offset-md-4">{children}</div>
     </div>
@@ -104,6 +105,7 @@ function Demo() {
                 styles={buildStyles({
                   pathColor: `rgba(62, 152, 199, ${(100 + value) / 200})`,
                   pathTransitionDuration: 0.2,
+                  markerColor: 'red',
                 })}
               />
             )}
@@ -130,6 +132,7 @@ function Demo() {
               path: 'CircularProgressbar-path',
               text: 'CircularProgressbar-text some-additional-test-class',
               background: 'CircularProgressbar-background',
+              marker: 'CircularProgressbar-marker',
             }}
             styles={{
               background: {
@@ -159,7 +162,8 @@ function Demo() {
                 <CircularProgressbar
                   value={value}
                   text={`${roundedValue}%`}
-                  styles={buildStyles({ pathTransition: 'none' })}
+                  circleRatio={0.5}
+                  styles={buildStyles({ rotation: 3 / 4, pathTransition: 'none' })}
                 />
               );
             }}
@@ -178,12 +182,13 @@ function Demo() {
               <CircularProgressbar
                 value={value}
                 text={`${value}%`}
-                circleRatio={0.75}
+                circleRatio={0.5}
                 styles={buildStyles({
-                  rotation: 1 / 2 + 1 / 8,
+                  rotation: 3 / 4,
                   strokeLinecap: 'butt',
                   pathColor: 'orange',
                   trailColor: '#eee',
+                  markerColor: 'orange',
                 })}
               />
             )}

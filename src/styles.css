@@ -39,6 +39,11 @@
   fill: #d6d6d6;
 }
 
+.CircularProgressbar .CircularProgressbar-marker {
+  fill: #3e98c7;
+  /* stroke: none; */
+}
+
 /*
  * Sample background styles. Use these with e.g.:
  *

@@ -6,6 +6,7 @@ export type CircularProgressbarStyles = {
   path?: React.CSSProperties;
   text?: React.CSSProperties;
   background?: React.CSSProperties;
+  marker?: React.CSSProperties;
 };
 
 export type CircularProgressbarDefaultProps = {
@@ -18,6 +19,7 @@ export type CircularProgressbarDefaultProps = {
     path: string;
     text: string;
     background: string;
+    marker: string;
   };
   className: string;
   counterClockwise: boolean;
@@ -40,6 +42,7 @@ export type CircularProgressbarWrapperProps = {
     path: string;
     text: string;
     background: string;
+    marker: string;
   };
   className?: string;
   counterClockwise?: boolean;

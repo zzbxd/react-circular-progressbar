@@ -8,6 +8,7 @@ function Path({
   pathRadius,
   strokeWidth,
   style,
+  marker,
 }: {
   className?: string;
   counterClockwise: boolean;
@@ -15,6 +16,7 @@ function Path({
   pathRadius: number;
   strokeWidth: number;
   style?: object;
+  marker?: string;
 }) {
   return (
     <path
@@ -23,9 +25,11 @@ function Path({
       d={getPathDescription({
         pathRadius,
         counterClockwise,
+        dashRatio,
       })}
       strokeWidth={strokeWidth}
       fillOpacity={0}
+      markerEnd={marker}
     />
   );
 }
@@ -34,12 +38,21 @@ function Path({
 function getPathDescription({
   pathRadius,
   counterClockwise,
+  dashRatio,
 }: {
   pathRadius: number;
   counterClockwise: boolean;
+  dashRatio: number;
 }) {
   const radius = pathRadius;
   const rotation = counterClockwise ? 1 : 0;
+
+  const degree = dashRatio * 360;
+  const calculateDegree = (Math.PI * degree) / 180;
+  const deltaX = counterClockwise
+    ? -radius * Math.sin(calculateDegree)
+    : radius * Math.sin(calculateDegree);
+  const deltaY = radius - radius * Math.cos(calculateDegree);
 
   // Move to center of canvas
   // Relative move to top canvas
@@ -50,6 +63,7 @@ function getPathDescription({
       m 0,-${radius}
       a ${radius},${radius} ${rotation} 1 1 0,${2 * radius}
       a ${radius},${radius} ${rotation} 1 1 0,-${2 * radius}
+      m ${deltaX},${deltaY}      
     `;
 }
 

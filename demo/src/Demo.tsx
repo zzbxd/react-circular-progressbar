@@ -3,7 +3,7 @@ import {
   CircularProgressbar,
   CircularProgressbarWithChildren,
   buildStyles,
-} from 'react-circular-progressbar';
+} from './components/CircleProgress';
 
 import classNames from 'classnames';
 import { easeQuadInOut } from 'd3-ease';
@@ -22,7 +22,7 @@ const Code: React.FunctionComponent<React.HTMLProps<HTMLSpanElement>> = (props) 
 
 const Example: React.FunctionComponent<{
   description: React.ReactNode;
-  children: any;
+  children: React.ReactNode;
 }> = ({ description, children }) => (
   <div className="col-12 col-sm-6 col-md-4 mt-4">
     <div className="row">

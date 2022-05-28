@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Demo from './Demo';
 
 // Stylesheets
-import 'react-circular-progressbar/dist/styles.css';
+// import 'react-circular-progressbar/dist/styles.css';
+import './components/CircleProgress/styles.css';
 import './App.css';
 
 class App extends Component {

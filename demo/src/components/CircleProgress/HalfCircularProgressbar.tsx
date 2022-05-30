@@ -7,10 +7,10 @@ import {
   VIEWBOX_CENTER_X,
   VIEWBOX_CENTER_Y,
 } from './constants';
-import Path from './Path';
+import Path from './PathHalfCircle';
 import { CircularProgressbarDefaultProps, CircularProgressbarProps } from './types';
 
-class CircularProgressbar extends React.Component<CircularProgressbarProps> {
+class HalfCircularProgressbar extends React.Component<CircularProgressbarProps> {
   static defaultProps: CircularProgressbarDefaultProps = {
     background: false,
     backgroundPadding: 0,
@@ -40,15 +40,12 @@ class CircularProgressbar extends React.Component<CircularProgressbarProps> {
 
   getBackgroundPadding() {
     if (!this.props.background) {
-      // Don't add padding if not displaying background
       return 0;
     }
     return this.props.backgroundPadding;
   }
 
   getPathRadius() {
-    // The radius of the path is defined to be in the middle, so in order for the path to
-    // fit perfectly inside the 100x100 viewBox, need to subtract half the strokeWidth
     return VIEWBOX_HEIGHT_HALF - this.props.strokeWidth - this.getBackgroundPadding();
   }
 
@@ -117,7 +114,7 @@ class CircularProgressbar extends React.Component<CircularProgressbarProps> {
               className={classes.text}
               style={styles.text}
               x={VIEWBOX_CENTER_X}
-              y={VIEWBOX_CENTER_Y}
+              y={VIEWBOX_CENTER_Y + pathRadius}
             >
               {text}
             </text>
@@ -128,4 +125,4 @@ class CircularProgressbar extends React.Component<CircularProgressbarProps> {
   }
 }
 
-export default CircularProgressbar;
+export default HalfCircularProgressbar;

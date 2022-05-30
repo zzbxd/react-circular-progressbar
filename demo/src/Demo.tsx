@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 import {
   CircularProgressbar,
+  HalfCircularProgressbar,
   CircularProgressbarWithChildren,
   buildStyles,
 } from './components/CircleProgress';
@@ -12,6 +13,8 @@ import { easeQuadInOut } from 'd3-ease';
 import AnimatedProgressProvider from './AnimatedProgressProvider';
 import ChangingProgressProvider from './ChangingProgressProvider';
 import ProgressProvider from './ProgressProvider';
+
+import { ExceptionCard } from './components/Cards';
 
 const GITHUB_URL = 'https://github.com/kevinsqi/react-circular-progressbar';
 const CODESANDBOX_EXAMPLES_URL = 'https://codesandbox.io/s/vymm4oln6y';
@@ -29,6 +32,16 @@ const Example: React.FunctionComponent<{
       <div className="col-6 col-md-4 offset-3 offset-md-4">{children}</div>
     </div>
     <p className="text-center mt-3">{description}</p>
+  </div>
+);
+
+const CardExample: React.FunctionComponent<{
+  children: React.ReactNode;
+}> = ({ children }) => (
+  <div className="col-12 col-sm-6 col-md-4 mt-4">
+    <div className="row">
+      <div className="col-6 col-md-4 offset-3 offset-md-4">{children}</div>
+    </div>
   </div>
 );
 
@@ -159,11 +172,11 @@ function Demo() {
             {(value) => {
               const roundedValue = Math.round(value);
               return (
-                <CircularProgressbar
+                <HalfCircularProgressbar
                   value={value}
                   text={`${roundedValue}%`}
-                  circleRatio={0.5}
-                  styles={buildStyles({ rotation: 3 / 4, pathTransition: 'none' })}
+                  circleRatio={1}
+                  styles={buildStyles({ rotation: 0, pathTransition: 'none' })}
                 />
               );
             }}
@@ -214,6 +227,10 @@ function Demo() {
             </div>
           </CircularProgressbarWithChildren>
         </Example>
+
+        <CardExample>
+          <ExceptionCard title="New Exceptions Today" content="201"></ExceptionCard>
+        </CardExample>
 
         {showAllExamples ? (
           <React.Fragment>

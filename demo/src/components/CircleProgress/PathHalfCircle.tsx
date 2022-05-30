@@ -47,18 +47,15 @@ function getPathDescription({
   const radius = pathRadius;
   const rotation = counterClockwise ? 1 : 0;
 
-  const degree = dashRatio * 360;
+  const degree = dashRatio * 180;
   const calculateDegree = (Math.PI * degree) / 180;
-  const deltaX = counterClockwise
-    ? -radius * Math.sin(calculateDegree)
-    : radius * Math.sin(calculateDegree);
-  const deltaY = radius - radius * Math.cos(calculateDegree);
+  const deltaX = -radius * Math.cos(calculateDegree) - radius;
+  const deltaY = -radius * Math.sin(calculateDegree);
 
   return `
       M ${VIEWBOX_CENTER_X},${VIEWBOX_CENTER_Y}
-      m 0,-${radius}
-      a ${radius},${radius} ${rotation} 1 1 0,${2 * radius}
-      a ${radius},${radius} ${rotation} 1 1 0,-${2 * radius}
+      m -${radius},${radius}
+      a ${radius},${radius} ${rotation} 1 1 ${2 * radius},0
       m ${deltaX},${deltaY}      
     `;
 }
@@ -72,7 +69,7 @@ function getDashStyle({
   dashRatio: number;
   pathRadius: number;
 }) {
-  const diameter = Math.PI * 2 * pathRadius;
+  const diameter = Math.PI * 1 * pathRadius;
   const gapLength = (1 - dashRatio) * diameter;
 
   return {

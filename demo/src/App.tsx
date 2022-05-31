@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Demo from './Demo';
+import Demo2 from './Demo2';
 
 // Stylesheets
 // import 'react-circular-progressbar/dist/styles.css';
@@ -12,7 +12,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Demo />
+        <Demo2 />
       </div>
     );
   }

@@ -6,7 +6,7 @@ import {
   VIEWBOX_HEIGHT_HALF,
   VIEWBOX_CENTER_X,
   VIEWBOX_CENTER_Y,
-} from './constants';
+} from '../constants';
 import Path from './Path';
 import { CircularProgressbarDefaultProps, CircularProgressbarProps } from './types';
 

@@ -1,10 +1,13 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import {
   CircularProgressbar,
   HalfCircularProgressbar,
   CircularProgressbarWithChildren,
   buildStyles,
-} from './components/CircleProgress';
+} from './components/Widgets/CircleProgress';
+
+import { ExceptionCard } from './components/Widgets/Cards';
+import { LineProgressBar } from './components/Widgets/LineProgress';
 
 import classNames from 'classnames';
 import { easeQuadInOut } from 'd3-ease';
@@ -13,8 +16,6 @@ import { easeQuadInOut } from 'd3-ease';
 import AnimatedProgressProvider from './AnimatedProgressProvider';
 import ChangingProgressProvider from './ChangingProgressProvider';
 import ProgressProvider from './ProgressProvider';
-
-import { ExceptionCard } from './components/Cards';
 
 const GITHUB_URL = 'https://github.com/kevinsqi/react-circular-progressbar';
 const CODESANDBOX_EXAMPLES_URL = 'https://codesandbox.io/s/vymm4oln6y';
@@ -36,6 +37,16 @@ const Example: React.FunctionComponent<{
 );
 
 const CardExample: React.FunctionComponent<{
+  children: React.ReactNode;
+}> = ({ children }) => (
+  <div className="col-12 col-sm-6 col-md-4 mt-4">
+    <div className="row">
+      <div className="col-6 col-md-4 offset-3 offset-md-4">{children}</div>
+    </div>
+  </div>
+);
+
+const LineExample: React.FunctionComponent<{
   children: React.ReactNode;
 }> = ({ children }) => (
   <div className="col-12 col-sm-6 col-md-4 mt-4">
@@ -231,6 +242,26 @@ function Demo() {
         <CardExample>
           <ExceptionCard title="New Exceptions Today" content="201"></ExceptionCard>
         </CardExample>
+
+        <LineExample>
+          <AnimatedProgressProvider
+            valueStart={5}
+            valueEnd={66}
+            duration={1.4}
+            easingFunction={easeQuadInOut}
+          >
+            {(value) => {
+              const roundedValue = Math.round(value);
+              return (
+                <LineProgressBar
+                  value={value}
+                  title={`${roundedValue}%`}
+                  styles={buildStyles({ rotation: 0, pathTransition: 'none' })}
+                />
+              );
+            }}
+          </AnimatedProgressProvider>
+        </LineExample>
 
         {showAllExamples ? (
           <React.Fragment>

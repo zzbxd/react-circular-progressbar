@@ -1,0 +1,54 @@
+/*
+ * All of the styles in this file are configurable!
+ */
+
+.LineProgressBar {
+  font-family: 'Calibri';
+  font-style: normal;
+  font-size: 100;
+  text-align: center;
+  letter-spacing: -0.2px;
+
+  /* Grayscale/White */
+
+  background: #ffffff;
+  /* Card Shadow */
+
+  box-shadow: 0px 0px 8px 2px rgba(64, 91, 106, 0.1);
+  border-radius: 4px;
+}
+
+.LineProgressBar .LineProgressBar-title {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #121b21;
+}
+
+.LineProgressBar .LineProgressBar-content {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 40px;
+  color: #0078be;
+}
+
+.LineProgressBar .LineProgressBar-path {
+  stroke: #3e98c7;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease 0s;
+}
+
+.LineProgressBar .LineProgressBar-trail {
+  stroke: #d6d6d6;
+  /* Used when trail is not full diameter, i.e. when props.circleRatio is set */
+  stroke-linecap: round;
+}
+
+.LineProgressBar .LineProgressBar-background {
+  fill: #d6d6d6;
+}
+
+.LineProgressBar .LineProgressBar-marker {
+  fill: #3e98c7;
+  /* stroke: none; */
+}

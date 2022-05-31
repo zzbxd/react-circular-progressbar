@@ -6,7 +6,7 @@ import {
   VIEWBOX_HEIGHT_HALF,
   VIEWBOX_CENTER_X,
   VIEWBOX_CENTER_Y,
-} from './constants';
+} from '../constants';
 import Path from './PathHalfCircle';
 import { CircularProgressbarDefaultProps, CircularProgressbarProps } from './types';
 
@@ -71,56 +71,54 @@ class HalfCircularProgressbar extends React.Component<CircularProgressbarProps> 
     const pathRatio = this.getPathRatio();
 
     return (
-      <div>
-        <svg
-          className={`${classes.root} ${className}`}
-          style={styles.root}
-          viewBox={`0 0 ${VIEWBOX_WIDTH} ${VIEWBOX_HEIGHT}`}
-          data-test-id="CircularProgressbar"
-        >
-          <defs>
-            <marker id="endpoint" refX="1" refY="1">
-              <circle cx="1" cy="1" r="1" className={classes.marker} style={styles.marker} />
-            </marker>
-          </defs>
-          {this.props.background ? (
-            <circle
-              className={classes.background}
-              style={styles.background}
-              cx={VIEWBOX_CENTER_X}
-              cy={VIEWBOX_CENTER_Y}
-              r={VIEWBOX_HEIGHT_HALF}
-            />
-          ) : null}
-          <Path
-            className={classes.trail}
-            counterClockwise={counterClockwise}
-            dashRatio={circleRatio}
-            pathRadius={pathRadius}
-            strokeWidth={strokeWidth}
-            style={styles.trail}
+      <svg
+        className={`${classes.root} ${className}`}
+        style={styles.root}
+        viewBox={`0 0 ${VIEWBOX_WIDTH} ${VIEWBOX_HEIGHT}`}
+        data-test-id="CircularProgressbar"
+      >
+        <defs>
+          <marker id="endpoint" refX="1" refY="1">
+            <circle cx="1" cy="1" r="1" className={classes.marker} style={styles.marker} />
+          </marker>
+        </defs>
+        {this.props.background ? (
+          <circle
+            className={classes.background}
+            style={styles.background}
+            cx={VIEWBOX_CENTER_X}
+            cy={VIEWBOX_CENTER_Y}
+            r={VIEWBOX_HEIGHT_HALF}
           />
-          <Path
-            className={classes.path}
-            counterClockwise={counterClockwise}
-            dashRatio={pathRatio * circleRatio}
-            pathRadius={pathRadius}
-            strokeWidth={strokeWidth}
-            style={styles.path}
-            marker="url(#endpoint)"
-          />
-          {text ? (
-            <text
-              className={classes.text}
-              style={styles.text}
-              x={VIEWBOX_CENTER_X}
-              y={VIEWBOX_CENTER_Y + pathRadius}
-            >
-              {text}
-            </text>
-          ) : null}
-        </svg>
-      </div>
+        ) : null}
+        <Path
+          className={classes.trail}
+          counterClockwise={counterClockwise}
+          dashRatio={circleRatio}
+          pathRadius={pathRadius}
+          strokeWidth={strokeWidth}
+          style={styles.trail}
+        />
+        <Path
+          className={classes.path}
+          counterClockwise={counterClockwise}
+          dashRatio={pathRatio * circleRatio}
+          pathRadius={pathRadius}
+          strokeWidth={strokeWidth}
+          style={styles.path}
+          marker="url(#endpoint)"
+        />
+        {text ? (
+          <text
+            className={classes.text}
+            style={styles.text}
+            x={VIEWBOX_CENTER_X}
+            y={VIEWBOX_CENTER_Y + pathRadius}
+          >
+            {text}
+          </text>
+        ) : null}
+      </svg>
     );
   }
 }

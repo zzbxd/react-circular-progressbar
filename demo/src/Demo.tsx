@@ -51,7 +51,7 @@ const LineExample: React.FunctionComponent<{
 }> = ({ children }) => (
   <div className="col-12 col-sm-6 col-md-4 mt-4">
     <div className="row">
-      <div className="col-6 col-md-4 offset-3 offset-md-4">{children}</div>
+      <div className="col-6 col-md-6 offset-3 offset-md-3">{children}</div>
     </div>
   </div>
 );
@@ -246,16 +246,20 @@ function Demo() {
         <LineExample>
           <AnimatedProgressProvider
             valueStart={5}
-            valueEnd={66}
+            valueEnd={80}
             duration={1.4}
             easingFunction={easeQuadInOut}
           >
             {(value) => {
               const roundedValue = Math.round(value);
+              const maxValue = 200;
               return (
                 <LineProgressBar
+                  minValue={0}
+                  maxValue={maxValue}
                   value={value}
-                  title={`${roundedValue}%`}
+                  title="Test Line"
+                  content={`${roundedValue} out of ${maxValue}`}
                   styles={buildStyles({ rotation: 0, pathTransition: 'none' })}
                 />
               );

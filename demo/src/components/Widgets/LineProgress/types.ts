@@ -31,5 +31,6 @@ export type LineProgressBarDefaultProps = {
 
 export type LineProgressBarProps = LineProgressBarDefaultProps & {
   title: string;
+  content: string;
   value: number;
 };

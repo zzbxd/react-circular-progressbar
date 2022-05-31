@@ -54,7 +54,7 @@ class LineProgressBar extends React.Component<LineProgressBarProps> {
   }
 
   render() {
-    const { className, classes, styles, title, strokeWidth } = this.props;
+    const { className, classes, styles, title, content, strokeWidth } = this.props;
     const pathRadius = this.getPathRadius();
     const pathRatio = this.getPathRatio();
 
@@ -89,10 +89,21 @@ class LineProgressBar extends React.Component<LineProgressBarProps> {
           <text
             className={classes.title}
             style={styles.title}
-            x={VIEWBOX_CENTER_X}
-            y={VIEWBOX_CENTER_Y + pathRadius}
+            x={VIEWBOX_CENTER_X - 20}
+            y={VIEWBOX_CENTER_Y - pathRadius / 2}
           >
             {title}
+          </text>
+        ) : null}
+
+        {content ? (
+          <text
+            className={classes.content}
+            style={styles.content}
+            x={VIEWBOX_CENTER_X - 30}
+            y={VIEWBOX_CENTER_Y + pathRadius / 2}
+          >
+            {content}
           </text>
         ) : null}
       </svg>

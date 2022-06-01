@@ -33,32 +33,6 @@ export type CircularProgressbarDefaultProps = {
   title: string;
 };
 
-// These are used for any CircularProgressbar wrapper components that can safely
-// ignore default props.
-export type CircularProgressbarWrapperProps = {
-  background?: boolean;
-  backgroundPadding?: number;
-  circleRatio?: number;
-  classes?: {
-    root: string;
-    trail: string;
-    path: string;
-    text: string;
-    title: string;
-    background: string;
-    marker: string;
-  };
-  className?: string;
-  counterClockwise?: boolean;
-  maxValue?: number;
-  minValue?: number;
-  strokeWidth?: number;
-  styles?: CircularProgressbarStyles;
-  text?: string;
-  value: number;
-  title?: string;
-};
-
 export type CircularProgressbarProps = CircularProgressbarDefaultProps & {
   value: number;
 };

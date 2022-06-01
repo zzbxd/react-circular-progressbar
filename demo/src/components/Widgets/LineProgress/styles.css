@@ -27,7 +27,7 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
-  color: #121b21;
+  fill: #121b21;
 }
 
 .LineProgressBar .LineProgressBar-content {
@@ -35,7 +35,7 @@
   font-weight: 700;
   font-size: 12px;
   line-height: 16px;
-  color: #121b21;
+  fill: #121b21;
 }
 
 .LineProgressBar .LineProgressBar-path {
@@ -51,9 +51,4 @@
 
 .LineProgressBar .LineProgressBar-background {
   fill: #d6d6d6;
-}
-
-.LineProgressBar .LineProgressBar-marker {
-  fill: #3e98c7;
-  /* stroke: none; */
 }

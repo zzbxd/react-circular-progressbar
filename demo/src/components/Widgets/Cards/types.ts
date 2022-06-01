@@ -17,6 +17,7 @@ export type ExceptionCardDefaultProps = {
 };
 
 export type ExceptionCardProps = ExceptionCardDefaultProps & {
-  title: string;
+  title1: string;
+  title2: string;
   content: string;
 };

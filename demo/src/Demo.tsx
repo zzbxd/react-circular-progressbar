@@ -241,7 +241,7 @@ function Demo() {
         </Example>
 
         <CardExample>
-          <ExceptionCard title="New Exceptions Today" content="201"></ExceptionCard>
+          <ExceptionCard title1="New Exceptions" title2="Today" content="201"></ExceptionCard>
         </CardExample>
 
         <LineExample>

@@ -24,19 +24,38 @@ class ExceptionCard extends React.Component<ExceptionCardProps> {
   };
 
   render() {
-    const { className, classes, styles, title, content } = this.props;
+    const { className, classes, styles, title1, title2, content } = this.props;
 
     return (
-      <div className={`${classes.root} ${className}`} style={styles.root}>
-        <div>
-          <p className={classes.title} style={styles.title}>
-            {title}
-          </p>
-          <p className={classes.content} style={styles.content}>
+      <svg
+        className={`${classes.root} ${className}`}
+        style={styles.root}
+        viewBox={`0 0 ${VIEWBOX_WIDTH} ${VIEWBOX_HEIGHT}`}
+        data-test-id="ExceptionCard"
+      >
+        {title1 ? (
+          <text className={classes.title} style={styles.title} x={VIEWBOX_CENTER_X} y={12}>
+            {title1}
+          </text>
+        ) : null}
+
+        {title2 ? (
+          <text className={classes.title} style={styles.title} x={VIEWBOX_CENTER_X} y={28}>
+            {title2}
+          </text>
+        ) : null}
+
+        {content ? (
+          <text
+            className={classes.content}
+            style={styles.content}
+            x={VIEWBOX_CENTER_X}
+            y={VIEWBOX_CENTER_Y + 22}
+          >
             {content}
-          </p>
-        </div>
-      </div>
+          </text>
+        ) : null}
+      </svg>
     );
   }
 }

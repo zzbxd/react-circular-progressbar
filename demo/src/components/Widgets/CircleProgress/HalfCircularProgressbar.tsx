@@ -48,7 +48,7 @@ class HalfCircularProgressbar extends React.Component<CircularProgressbarProps> 
   }
 
   getPathRadius() {
-    return VIEWBOX_HEIGHT_HALF - this.props.strokeWidth - this.getBackgroundPadding();
+    return VIEWBOX_HEIGHT_HALF - this.props.strokeWidth - this.getBackgroundPadding() - 5;
   }
 
   // Ratio of path length to trail length, as a value between 0 and 1

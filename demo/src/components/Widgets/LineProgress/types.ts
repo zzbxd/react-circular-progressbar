@@ -5,7 +5,6 @@ export type LineProgressBarStyles = {
   trail?: React.CSSProperties;
   path?: React.CSSProperties;
   background?: React.CSSProperties;
-  marker?: React.CSSProperties;
   title?: React.CSSProperties;
   content?: React.CSSProperties;
 };
@@ -18,7 +17,6 @@ export type LineProgressBarDefaultProps = {
     trail: string;
     path: string;
     background: string;
-    marker: string;
     title: string;
     content: string;
   };

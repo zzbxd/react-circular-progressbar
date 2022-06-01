@@ -32,8 +32,6 @@ const Example: React.FunctionComponent<{
 );
 
 function Demo2() {
-  const [showAllExamples, setShowAllExamples] = React.useState(false);
-
   return (
     <div className="container">
       <div className="row mt-5">
@@ -75,7 +73,7 @@ function Demo2() {
         </Example>
 
         <Example>
-          <ExceptionCard title="New Exceptions Today" content="201"></ExceptionCard>
+          <ExceptionCard title1="New Exceptions" title2="Today" content="201"></ExceptionCard>
         </Example>
 
         <Example>

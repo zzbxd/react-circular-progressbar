@@ -23,15 +23,19 @@
 }
 
 .ExceptionCard .ExceptionCard-title {
+  text-anchor: middle;
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
-  color: #121b21;
+  word-wrap: normal;
+  fill: #121b21;
 }
 
 .ExceptionCard .ExceptionCard-content {
+  text-anchor: middle;
   font-weight: 700;
   font-size: 32px;
   line-height: 40px;
-  color: #0078be;
+  letter-spacing: -0.4px;
+  fill: #0078be;
 }

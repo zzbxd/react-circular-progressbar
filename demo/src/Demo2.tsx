@@ -1,25 +1,12 @@
 import React from 'react';
-import {
-  CircularProgressbar,
-  HalfCircularProgressbar,
-  CircularProgressbarWithChildren,
-  buildStyles,
-} from './components/Widgets/CircleProgress';
+import { HalfCircularProgressbar, buildStyles } from './components/Widgets/CircleProgress';
 
 import { ExceptionCard } from './components/Widgets/Cards';
 import { LineProgressBar } from './components/Widgets/LineProgress';
 
 import classNames from 'classnames';
 import { easeQuadInOut } from 'd3-ease';
-
-// Custom progressbar wrappers
 import AnimatedProgressProvider from './AnimatedProgressProvider';
-import ChangingProgressProvider from './ChangingProgressProvider';
-import ProgressProvider from './ProgressProvider';
-
-const Code: React.FunctionComponent<React.HTMLProps<HTMLSpanElement>> = (props) => (
-  <code className={classNames('p-1 bg-yellow text-dark', props.className)} {...props} />
-);
 
 const Example: React.FunctionComponent<{
   children: React.ReactNode;
@@ -53,7 +40,7 @@ function Demo2() {
         <Example>
           <AnimatedProgressProvider
             valueStart={5}
-            valueEnd={33}
+            valueEnd={72}
             duration={1.4}
             easingFunction={easeQuadInOut}
           >

@@ -81,7 +81,7 @@ class HalfCircularProgressbar extends React.Component<CircularProgressbarProps> 
         data-test-id="CircularProgressbar"
       >
         <defs>
-          <marker id="endpoint" refX="1" refY="1">
+          <marker id="endpointGreen" refX="1" refY="1">
             <circle cx="1" cy="1" r="1" className={classes.marker} style={styles.marker} />
           </marker>
         </defs>
@@ -109,7 +109,7 @@ class HalfCircularProgressbar extends React.Component<CircularProgressbarProps> 
           pathRadius={pathRadius}
           strokeWidth={strokeWidth}
           style={styles.path}
-          marker="url(#endpoint)"
+          marker="url(#endpointGreen)"
         />
         {text ? (
           <text

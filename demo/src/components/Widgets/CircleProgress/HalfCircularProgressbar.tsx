@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './styles.css';
 
 import {
   VIEWBOX_WIDTH,

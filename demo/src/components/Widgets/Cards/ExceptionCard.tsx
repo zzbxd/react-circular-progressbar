@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './styles.css';
 import {
   VIEWBOX_WIDTH,
   VIEWBOX_HEIGHT,
@@ -50,7 +51,7 @@ class ExceptionCard extends React.Component<ExceptionCardProps> {
             className={classes.content}
             style={styles.content}
             x={VIEWBOX_CENTER_X}
-            y={VIEWBOX_CENTER_Y + 22}
+            y={VIEWBOX_CENTER_Y + 36}
           >
             {content}
           </text>

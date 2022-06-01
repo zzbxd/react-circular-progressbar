@@ -21,12 +21,12 @@ class LineProgressBar extends React.Component<LineProgressBarProps> {
       trail: 'LineProgressBar-trail',
       path: 'LineProgressBar-path',
       background: 'LineProgressBar-background',
-      marker: 'LineProgressBar-conmarker',
+      marker: 'LineProgressBar-marker',
     },
     className: '',
     maxValue: 100,
     minValue: 0,
-    strokeWidth: 8,
+    strokeWidth: 16,
 
     styles: {
       root: {},
@@ -43,10 +43,9 @@ class LineProgressBar extends React.Component<LineProgressBarProps> {
   }
 
   getPathRadius() {
-    return VIEWBOX_HEIGHT_HALF - this.props.strokeWidth - this.getBackgroundPadding();
+    return VIEWBOX_HEIGHT_HALF - this.props.strokeWidth / 2 - this.getBackgroundPadding();
   }
 
-  // Ratio of path length to trail length, as a value between 0 and 1
   getPathRatio() {
     const { value, minValue, maxValue } = this.props;
     const boundedValue = Math.min(Math.max(value, minValue), maxValue);
@@ -83,15 +82,9 @@ class LineProgressBar extends React.Component<LineProgressBarProps> {
           pathRadius={pathRadius}
           strokeWidth={strokeWidth}
           style={styles.path}
-          marker="url(#endpoint)"
         />
         {title ? (
-          <text
-            className={classes.title}
-            style={styles.title}
-            x={VIEWBOX_CENTER_X - 20}
-            y={VIEWBOX_CENTER_Y - pathRadius / 2}
-          >
+          <text className={classes.title} style={styles.title} x={VIEWBOX_CENTER_X} y={12}>
             {title}
           </text>
         ) : null}
@@ -100,8 +93,8 @@ class LineProgressBar extends React.Component<LineProgressBarProps> {
           <text
             className={classes.content}
             style={styles.content}
-            x={VIEWBOX_CENTER_X - 30}
-            y={VIEWBOX_CENTER_Y + pathRadius / 2}
+            x={VIEWBOX_CENTER_X}
+            y={VIEWBOX_CENTER_Y + 22}
           >
             {content}
           </text>

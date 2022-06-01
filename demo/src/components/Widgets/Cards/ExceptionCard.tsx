@@ -1,5 +1,11 @@
 import * as React from 'react';
-
+import {
+  VIEWBOX_WIDTH,
+  VIEWBOX_HEIGHT,
+  VIEWBOX_HEIGHT_HALF,
+  VIEWBOX_CENTER_X,
+  VIEWBOX_CENTER_Y,
+} from '../constants';
 import { ExceptionCardDefaultProps, ExceptionCardProps } from './types';
 
 class ExceptionCard extends React.Component<ExceptionCardProps> {

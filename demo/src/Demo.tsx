@@ -155,6 +155,7 @@ function Demo() {
               trail: 'CircularProgressbar-trail',
               path: 'CircularProgressbar-path',
               text: 'CircularProgressbar-text some-additional-test-class',
+              title: 'CircularProgressbar-title',
               background: 'CircularProgressbar-background',
               marker: 'CircularProgressbar-marker',
             }}

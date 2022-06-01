@@ -20,6 +20,7 @@ class CircularProgressbar extends React.Component<CircularProgressbarProps> {
       trail: 'CircularProgressbar-trail',
       path: 'CircularProgressbar-path',
       text: 'CircularProgressbar-text',
+      title: 'CircularProgressbar-title',
       background: 'CircularProgressbar-background',
       marker: 'CircularProgressbar-marker',
     },
@@ -36,6 +37,7 @@ class CircularProgressbar extends React.Component<CircularProgressbarProps> {
       background: {},
     },
     text: '',
+    title: '',
   };
 
   getBackgroundPadding() {

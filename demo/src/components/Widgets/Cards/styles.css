@@ -3,6 +3,10 @@
  */
 
 .ExceptionCard {
+  width: 100%;
+  vertical-align: middle;
+  padding-top: 10%;
+
   font-family: 'Calibri';
   font-style: normal;
   font-size: 100;

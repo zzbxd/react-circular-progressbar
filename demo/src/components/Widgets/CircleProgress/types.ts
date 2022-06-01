@@ -5,6 +5,7 @@ export type CircularProgressbarStyles = {
   trail?: React.CSSProperties;
   path?: React.CSSProperties;
   text?: React.CSSProperties;
+  title?: React.CSSProperties;
   background?: React.CSSProperties;
   marker?: React.CSSProperties;
 };
@@ -18,6 +19,7 @@ export type CircularProgressbarDefaultProps = {
     trail: string;
     path: string;
     text: string;
+    title: string;
     background: string;
     marker: string;
   };
@@ -28,6 +30,7 @@ export type CircularProgressbarDefaultProps = {
   strokeWidth: number;
   styles: CircularProgressbarStyles;
   text: string;
+  title: string;
 };
 
 // These are used for any CircularProgressbar wrapper components that can safely
@@ -41,6 +44,7 @@ export type CircularProgressbarWrapperProps = {
     trail: string;
     path: string;
     text: string;
+    title: string;
     background: string;
     marker: string;
   };
@@ -52,6 +56,7 @@ export type CircularProgressbarWrapperProps = {
   styles?: CircularProgressbarStyles;
   text?: string;
   value: number;
+  title?: string;
 };
 
 export type CircularProgressbarProps = CircularProgressbarDefaultProps & {

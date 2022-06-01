@@ -24,9 +24,9 @@ const Code: React.FunctionComponent<React.HTMLProps<HTMLSpanElement>> = (props) 
 const Example: React.FunctionComponent<{
   children: React.ReactNode;
 }> = ({ children }) => (
-  <div className="col-12 col-sm-6 col-md-4 mt-4">
+  <div className="col-12 col-sm-6 col-md-2 mt-4">
     <div className="row">
-      <div className="col-6 col-md-4 offset-3 offset-md-4">{children}</div>
+      <div className="col-6 col-md-12 offset-3 offset-md-0">{children}</div>
     </div>
   </div>
 );
@@ -55,7 +55,7 @@ function Demo2() {
         <Example>
           <AnimatedProgressProvider
             valueStart={5}
-            valueEnd={66}
+            valueEnd={33}
             duration={1.4}
             easingFunction={easeQuadInOut}
           >
@@ -66,6 +66,7 @@ function Demo2() {
                   value={value}
                   text={`${roundedValue}%`}
                   circleRatio={1}
+                  title="ML Automatch %"
                   styles={buildStyles({ rotation: 0, pathTransition: 'none' })}
                 />
               );
@@ -92,7 +93,7 @@ function Demo2() {
                   minValue={0}
                   maxValue={maxValue}
                   value={value}
-                  title="Test Line"
+                  title="ML Automatch"
                   content={`${roundedValue} out of ${maxValue}`}
                   styles={buildStyles({ rotation: 0, pathTransition: 'none' })}
                 />

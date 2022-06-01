@@ -1,5 +1,5 @@
 /*
- * react-circular-progressbar styles
+ * circular-progressbar styles
  * All of the styles in this file are configurable!
  */
 
@@ -14,6 +14,8 @@
    * https://github.com/kevinsqi/react-circular-progressbar/issues/94
    */
   vertical-align: middle;
+
+  padding-top: 10%;
 
   /* add shadow box */
   background: #ffffff;
@@ -40,6 +42,14 @@
   font-size: 20px;
   dominant-baseline: middle;
   text-anchor: middle;
+}
+
+.CircularProgressbar .CircularProgressbar-title {
+  text-anchor: middle;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #121b21;
 }
 
 .CircularProgressbar .CircularProgressbar-background {

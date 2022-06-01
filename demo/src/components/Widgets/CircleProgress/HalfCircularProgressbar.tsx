@@ -20,6 +20,7 @@ class HalfCircularProgressbar extends React.Component<CircularProgressbarProps> 
       trail: 'CircularProgressbar-trail',
       path: 'CircularProgressbar-path',
       text: 'CircularProgressbar-text',
+      title: 'CircularProgressbar-title',
       background: 'CircularProgressbar-background',
       marker: 'CircularProgressbar-marker',
     },
@@ -36,6 +37,7 @@ class HalfCircularProgressbar extends React.Component<CircularProgressbarProps> 
       background: {},
     },
     text: '',
+    title: '',
   };
 
   getBackgroundPadding() {
@@ -65,6 +67,7 @@ class HalfCircularProgressbar extends React.Component<CircularProgressbarProps> 
       styles,
       strokeWidth,
       text,
+      title,
     } = this.props;
 
     const pathRadius = this.getPathRadius();
@@ -116,6 +119,12 @@ class HalfCircularProgressbar extends React.Component<CircularProgressbarProps> 
             y={VIEWBOX_CENTER_Y + pathRadius}
           >
             {text}
+          </text>
+        ) : null}
+
+        {title ? (
+          <text className={classes.title} style={styles.title} x={VIEWBOX_CENTER_X} y={12}>
+            {title}
           </text>
         ) : null}
       </svg>
